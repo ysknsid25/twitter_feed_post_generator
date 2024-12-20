@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     ? `%23${document.getElementById("hashTag").value}`
                     : "";
                 const title = tab.title;
-                const url = tab.url;
-                const text = `${fixedMessage}%20${hashTag}%20%0a%20"${title}"%20%0a%20${url}`;
+                const url = encodeURIComponent(tab.url);
+                const text = `${fixedMessage}%20${hashTag}%20%0a%20"${title}"%20%0a`;
                 const shareUrl = `https://x.com/intent/post?url=${url}&text=${text}`;
                 chrome.tabs.create({ url: shareUrl });
             }
