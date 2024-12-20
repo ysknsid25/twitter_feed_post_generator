@@ -1,0 +1,25 @@
+{
+    "name": "Twitter Feed Post Generator",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "description": "Post to Twitter",
+    "permissions": ["tabs", "cookies", "storage"],
+    "host_permissions": ["https://*.x.com/*"],
+    "content_scripts": [
+        {
+            "matches": ["*://*.connpass.com/event/*/participation/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "icons": {
+        "16": "icon/icon16.png",
+        "32": "icon/icon32.png",
+        "48": "icon/icon48.png",
+        "128": "icon/icon128.png"
+    },
+    "action": {
+        "default_title": "Twitter Feed Post Generator",
+        "default_icon": "icon/icon48.png",
+        "default_popup": "popup.html"
+    }
+}
