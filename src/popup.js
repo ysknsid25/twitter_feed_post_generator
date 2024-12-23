@@ -30,10 +30,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 currentWindow: true,
             });
             if (tab) {
+                const mode = document.getElementsByName("mode");
+                let endFix = "";
+                for (let i = 0; i < mode.length; i++) {
+                    if (mode.item(i).checked) {
+                        endFix = mode.item(i).value;
+                    }
+                }
                 const fixedMessage =
                     document.getElementById("fixedMessage").value;
                 const hashTag = document.getElementById("hashTag").value
-                    ? `%23${document.getElementById("hashTag").value}`
+                    ? `%23${document.getElementById("hashTag").value}_${endFix}`
                     : "";
                 const title = tab.title;
                 const url = encodeURIComponent(tab.url);
