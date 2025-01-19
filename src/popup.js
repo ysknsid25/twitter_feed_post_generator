@@ -34,13 +34,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 let endFix = "";
                 for (let i = 0; i < mode.length; i++) {
                     if (mode.item(i).checked) {
-                        endFix = mode.item(i).value;
+                        if (mode.item(i).value) {
+                            endFix = "_" + mode.item(i).value;
+                        }
                     }
                 }
                 const fixedMessage =
                     document.getElementById("fixedMessage").value;
                 const hashTag = document.getElementById("hashTag").value
-                    ? `%23${document.getElementById("hashTag").value}_${endFix}`
+                    ? `%23${document.getElementById("hashTag").value}${endFix}`
                     : "";
                 const title = tab.title;
                 const url = encodeURIComponent(tab.url);
